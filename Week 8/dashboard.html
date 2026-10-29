@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Grid Dashboard</title>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f9;
+      color: #333;
+    }
+
+    /* 8.1 & 8.3: Main Grid Layout & Named Grid Areas */
+    .dashboard-container {
+      display: grid;
+      min-height: 100vh;
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: 60px 1fr 50px;
+      grid-template-areas:
+        "head head"
+        "side main"
+        "foot foot";
+      gap: 15px;
+    }
+
+    /* Assigning elements to named areas (8.3) */
+    .header {
+      grid-area: head;
+      background-color: #1e293b;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .sidebar {
+      grid-area: side;
+      background-color: #334155;
+      padding: 20px 15px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 1rem;
+      display: block;
+      padding: 8px;
+      border-radius: 4px;
+    }
+
+    .sidebar a:hover {
+      background-color: #475569;
+      color: #ffffff;
+    }
+
+    /* 8.2: Auto-arranging grid boxes in main content */
+    .main-content {
+      grid-area: main;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      align-content: start;
+      padding-right: 15px;
+    }
+
+    /* 8.4: Card layout using Flexbox to align icon and text side-by-side */
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 15px;
+      display: flex;             /* Flexbox requirement */
+      align-items: center;        /* Vertically centers icon and text */
+      gap: 12px;                  /* Gap between icon and text */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Pure CSS Icon styling */
+    .icon {
+      width: 35px;
+      height: 35px;
+      background-color: #e0e7ff;
+      color: #3b82f6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .card-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .card-value {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #0f172a;
+    }
+
+    /* Footer styling */
+    .footer {
+      grid-area: foot;
+      background-color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #334155;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <!-- Top Bar -->
+    <header class="header">
+      <h2>Dashboard Header</h2>
+    </header>
+
+    <!-- Side Menu -->
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Analytics</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- 8.2 & 8.4: Self-arranging boxes with Flexbox content -->
+      <div class="card">
+        <div class="icon">👤</div>
+        <div class="card-text">
+          <span class="card-title">Users</span>
+          <span class="card-value">1,245</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">💰</div>
+        <div class="card-text">
+          <span class="card-title">Sales</span>
+          <span class="card-value">$34,200</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">🛒</div>
+        <div class="card-text">
+          <span class="card-title">Orders</span>
+          <span class="card-value">532</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">📈</div>
+        <div class="card-text">
+          <span class="card-title">Growth</span>
+          <span class="card-value">+14.2%</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">💬</div>
+        <div class="card-text">
+          <span class="card-title">Messages</span>
+          <span class="card-value">89</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">⚡</div>
+        <div class="card-text">
+          <span class="card-title">Server</span>
+          <span class="card-value">99.9%</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2026 Dashboard Footer</p>
+    </footer>
+  </div>
+
+</body>
+</html>
