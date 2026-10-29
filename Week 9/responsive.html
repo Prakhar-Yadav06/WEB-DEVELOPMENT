@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Landing Page</title>
+  <style>
+    /* =========================================================
+       BASE STYLES & MOBILE-FIRST LAYOUT (9.1, 9.2, 9.3)
+       ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    /* 9.2: All images fluid and responsive */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    /* 9.2: All typography uses rem units */
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1.25rem;
+      text-align: center;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #475569;
+    }
+
+    /* 9.3: Flexbox Navigation Bar */
+    .navbar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      background-color: #0f172a;
+      color: #ffffff;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .nav-links a {
+      color: #f1f5f9;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    /* 9.3: CSS Grid for Main Page Sections */
+    .page-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Hero Section - Mobile Stack */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #2563eb;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    /* Features Section - Mobile Stack */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background-color: #ffffff;
+      padding: 1.25rem;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .feature-card img {
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
+    .about {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #0f172a;
+      color: #94a3b8;
+      font-size: 0.875rem;
+      margin-top: 2rem;
+    }
+
+
+    /* =========================================================
+       9.1: TABLET MEDIA QUERY (768px and up)
+       ========================================================= */
+    @media (min-width: 768px) {
+      .navbar {
+        flex-direction: row;
+        padding: 1rem 2.5rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 2.25rem;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .page-grid {
+        padding: 2.5rem;
+        gap: 3.5rem;
+      }
+    }
+
+
+    /* =========================================================
+       9.1: DESKTOP MEDIA QUERY (1024px and up)
+       ========================================================= */
+    @media (min-width: 1024px) {
+      h1 {
+        font-size: 3rem;
+      }
+
+      .hero {
+        grid-template-columns: 1fr 1fr;
+        padding: 3rem;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar (Uses Flexbox - 9.3) -->
+  <header class="navbar">
+    <div class="logo">FlexLanding</div>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Page Layout Container (Uses CSS Grid for sections - 9.3) -->
+  <main class="page-grid">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Build Faster with Responsive Web Design</h1>
+        <p>Create clean, flexible layouts using CSS Grid, Flexbox, and fluid typography in rem units.</p>
+        <a href="#contact" class="btn">Get Started</a>
+      </div>
+      <div class="hero-image">
+        <!-- Image with responsive sizing (9.2) -->
+        <img src="https://picsum.photos/600/400?random=1" alt="Responsive Design Workspace">
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <h2>Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <img src="https://picsum.photos/300/200?random=2" alt="Mobile-first icon">
+          <h3>Mobile-First Layout</h3>
+          <p>Designed for mobile screens first, ensuring smooth experiences across all devices.</p>
+        </div>
+        <div class="feature-card">
+          <img src="https://picsum.photos/300/200?random=3" alt="CSS Grid icon">
+          <h3>CSS Grid Architecture</h3>
+          <p>Structured section grids that adapt seamlessly using fractional units and media queries.</p>
+        </div>
+        <div class="feature-card">
+          <img src="https://picsum.photos/300/200?random=4" alt="Flexbox Navigation icon">
+          <h3>Flexbox Navigation</h3>
+          <p>Header navigation built with Flexbox for optimal alignment and space distribution.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <h2>About Our Platform</h2>
+      <p>Our responsive design approach empowers modern developers to build clean, maintainable web applications for smartphones, tablets, and desktop workstations.</p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2026 FlexLanding Inc. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
